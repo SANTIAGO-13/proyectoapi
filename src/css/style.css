@@ -1,0 +1,49 @@
+*{
+  padding: 0px;
+  margin: 0px;
+}
+
+#app {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+.menu {
+  width: 20%;
+  background-color: #1a1a1a;
+  height: 100vh;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.menu-item {
+  padding: 15px;
+  color: #ffffff;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 8px 0px;
+}
+
+.menu-item:hover {
+  background-color: #646cff;
+}
+
+.menu-item.active {
+  background-color: #535bf2;
+}
+
+.content {
+  width: 100%; /* Espacio para el menú */
+  background-color: #242424;
+  height: 100vh;
+  color: #ffffff;
+}
+
+
+

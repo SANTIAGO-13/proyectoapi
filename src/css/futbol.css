@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+#app {
+    display: flex;
+}
+
+.menu {
+    width: 200px;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    position: fixed; /* Fija el menú en la izquierda */
+    height: 100%; /* Asegura que el menú ocupe toda la altura */
+}
+
+.menu-item {
+    display: block;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.menu-item:hover, .menu-item.active {
+    background-color: #575757;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    margin-left: 300px; /* Margen para el menú */
+}
+
+.matches-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.country-section {
+    margin-bottom: 20px;
+}
+
+.country-section h3 {
+    margin: 0 0 10px;
+    color: #333;
+}
+
+.match-box {
+    background-color: #1B1B1B;
+    color: white;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.match-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.match-score {
+    font-size: 16px;
+}
+
+#standings-btn {
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#standings {
+    margin-top: 20px;
+    background-color: #575757;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.standings-table {
+    margin-top: 10px;
+}
+
+.standing-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+
+.hidden {
+    display: none;
+}
+
+
+

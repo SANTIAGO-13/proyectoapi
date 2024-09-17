@@ -1,0 +1,162 @@
+/* Contenedor de la imagen y título */
+.image-container {
+    width: 90%;
+    height: auto;
+    position: relative;
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    max-height: 200px;
+    margin-left: -20px;
+}
+
+.image-container h2 {
+    text-align: left;
+    margin-top: 10px;
+    margin-left: 95px;
+    font-size: 22px;
+    color: #ffffff;
+}
+
+/* Contenedor de los partidos */
+.matches-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+    margin-left: 100px;
+}
+
+/* Cuadro de cada partido */
+.match-box {
+    background-color: #1B1B1B;
+    border-radius: 10px;
+    width: 24%;
+    height: 120px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilo de los equipos dentro del cuadro */
+.team-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    color: white;
+    font-size: 14px;
+}
+
+.team-logo {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+/* Reorganización de nombres y marcadores */
+.team-names {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    color: white;
+    font-size: 16px;
+}
+
+.team-names span {
+    margin: 0 10px;
+}
+
+/* Ajuste para que los cuadros no queden tapados por el menú */
+.content {
+    margin-left: 170px;
+    margin-bottom: 50px; /* Se agregó un margen inferior para dar espacio al contenido */
+    padding-bottom: 100px; /* Espacio adicional para evitar que el contenido se corte */
+    max-height: calc(100vh - 100px); /* Ajusta el alto máximo del contenido */
+    overflow-y: auto; /* Habilita el scroll en el contenedor de contenido */
+}
+
+/* Ajuste del tamaño de la página */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    height: 100%; /* Aseguramos que el body ocupe el 100% del alto de la ventana */
+    min-height: 100vh; /* Evitamos que el contenido se salga de la pantalla */
+    overflow-y: hidden; /* Evita scroll en el body */
+}
+
+/* Cuadro de estadísticas */
+.stats-box {
+    background-color: #2E2E2E;
+    border-radius: 10px;
+    width: 70%; /* Ajustado para que se ajuste mejor a la pantalla */
+    margin-left: 15%; /* Centrado horizontalmente */
+    margin-top: 30px;
+    padding: 20px;
+    color: white;
+    max-height: 400px; /* Ajusta la altura máxima del cuadro de estadísticas */
+    overflow-y: auto; /* Habilita el scroll dentro del cuadro de estadísticas */
+}
+
+/* Filas de estadísticas */
+.team-stats {
+    display: flex;
+    justify-content: space-between;
+}
+
+.team-column {
+    width: 45%;
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0; /* Aumenta el padding para más separación */
+}
+
+.stat-item {
+    width: 45%;
+    margin: 0 5%; /* Añade margen lateral para separación */
+}
+
+/* Espaciado adicional para títulos de equipos */
+.team-column h4 {
+    margin-bottom: 10px; /* Añade espacio debajo del título */
+}
+
+/* Fondo del total de la página */
+html, body {
+    background-color: #242424; /* Asegura que el fondo sea consistente */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
