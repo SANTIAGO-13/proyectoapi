@@ -6,9 +6,17 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "nodemon proxy.js"  
   },
   "devDependencies": {
-    "vite": "^5.4.1"
+    "vite": "^5.4.1",
+    "nodemon": "^2.0.22" 
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "node-fetch": "^3.3.2"
   }
 }
+

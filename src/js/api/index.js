@@ -2,51 +2,153 @@ import ApiServe from './ApiService.js';
 
 const api = new ApiServe();
 
-function renderMatches(matches, containerId) {
-	const container = document.getElementById(containerId);
-	container.innerHTML = ''; // Limpiar contenido existente
+const API_KEY = '6d519e9fb5e94284c0009d7339dd3a42';
+const API_HOST = 'v3.football.api-sports.io';
 
-	matches.forEach((match) => {
-		const matchElement = document.createElement('div');
-		matchElement.classList.add('match');
-
-		matchElement.innerHTML = `
-            <div class="time">${match.fixture.status.elapsed}'</div>
-            <div class="teams">${match.teams.home.name} <br> ${match.teams.away.name}</div>
-            <div class="score">${match.goals.home} <br> ${match.goals.away}</div>
-        `;
-
-		container.appendChild(matchElement);
-	});
-}
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelector('.live-button').addEventListener('click', renderLiveMatches);
+    document.querySelector('.finished-button').addEventListener('click', renderFinishedMatches);
+    loadMatches();
+    fetchUpcomingMatches();
+});
 
 function loadMatches() {
-	// Cargar partidos en directo de España (ID de La Liga = 140)
-	api.fetchMatches(140).then((matches) => {
-		renderMatches(matches, 'spain-matches');
-	});
+    const leagues = ['spain', 'england', 'germany', 'france', 'italy'];
 
-	// Cargar partidos en directo de Inglaterra (ID de Premier League = 39)
-	api.fetchMatches(39).then((matches) => {
-		renderMatches(matches, 'england-matches');
-	});
+    leagues.forEach((league) => {
+        const leagueId = getLeagueId(league);
 
-	// Cargar partidos en directo de Alemania (ID de Bundesliga = 78)
-	api.fetchMatches(78).then((matches) => {
-		renderMatches(matches, 'germany-matches');
-	});
-
-	// Cargar partidos en directo de Francia (ID de Ligue 1 = 61)
-	api.fetchMatches(61).then((matches) => {
-		renderMatches(matches, 'france-matches');
-	});
-
-	// Cargar partidos en directo de Italia (ID de Serie A = 135)
-	api.fetchMatches(135).then((matches) => {
-		renderMatches(matches, 'italy-matches');
-	});
+        if (leagueId) {
+            api.fetchMatches(leagueId).then((matches) => {
+                renderMatches(matches, `${league}-matches`);
+            }).catch((error) => console.error(`Error fetching ${league} matches:`, error));
+        }
+    });
 }
 
-// Llamar a la función al cargar la página
-loadMatches();
+function renderLiveMatches() {
+    const leagues = ['spain', 'england', 'germany', 'france', 'italy'];
+
+    leagues.forEach((league) => {
+        const leagueId = getLeagueId(league);
+
+        if (leagueId) {
+            api.fetchMatches(leagueId).then((matches) => {
+                const liveMatches = matches.filter(match => match.status === 'live');
+                renderMatches(liveMatches, `${league}-matches`);
+            }).catch((error) => console.error(`Error fetching live matches for ${league}:`, error));
+        }
+    });
+}
+
+function renderFinishedMatches() {
+    const leagues = ['spain', 'england', 'germany', 'france', 'italy'];
+
+    leagues.forEach((league) => {
+        const leagueId = getLeagueId(league);
+
+        if (leagueId) {
+            api.fetchFinishedMatches(leagueId, 2023).then((matches) => {
+                renderMatches(matches, `${league}-matches`);
+            }).catch((error) => console.error(`Error fetching finished matches for ${league}:`, error));
+        }
+    });
+}
+
+function getLeagueId(league) {
+    const leagueIds = {
+        spain: 140,
+        england: 39,
+        germany: 78,
+        france: 61,
+        italy: 135
+    };
+
+    return leagueIds[league] || null;
+}
+
+function renderMatches(matches, containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) {
+        console.error(`Container ${containerId} not found`);
+        return;
+    }
+
+    container.innerHTML = '';
+
+    matches.forEach(match => {
+        const matchElement = document.createElement('div');
+        matchElement.className = 'match';
+        matchElement.innerHTML = `
+            <div class="match-info">
+                <span class="team">${match.teams.home.name}</span> vs
+                <span class="team">${match.teams.away.name}</span>
+                <span class="score">${match.score.fullTime.home} - ${match.score.fullTime.away}</span>
+                <span class="status">${new Date(match.fixture.date).toLocaleString()}</span>
+            </div>
+        `;
+        container.appendChild(matchElement);
+    });
+}
+
+function fetchUpcomingMatches() {
+    const leagues = ['spain', 'england', 'germany', 'france', 'italy'];
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(today.getDate() + 1);
+
+    leagues.forEach((league) => {
+        const leagueId = getLeagueId(league);
+        if (leagueId) {
+            fetch(`http://localhost:3001/api/fixtures?league=${leagueId}&season=2024&date=${tomorrow.toISOString().split('T')[0]}`, {
+                method: 'GET',
+                headers: {
+                    'x-rapidapi-host': API_HOST,
+                    'x-rapidapi-key': API_KEY
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                displayUpcomingMatches(data);
+            })
+            .catch(err => {
+                console.error('Error al obtener los próximos partidos:', err);
+            });
+        }
+    });
+}
+
+function displayUpcomingMatches(data) {
+    const upcomingMatchesContainer = document.getElementById('upcoming-matches');
+    if (!upcomingMatchesContainer) {
+        console.error('Container for upcoming matches not found');
+        return;
+    }
+
+    upcomingMatchesContainer.innerHTML = '';
+
+    data.response.forEach(match => {
+        const matchElement = document.createElement('div');
+        matchElement.className = 'match';
+        matchElement.innerHTML = `
+            <div class="match-info">
+                <span class="team">${match.teams.home.name}</span> vs
+                <span class="team">${match.teams.away.name}</span>
+                <span class="status">${new Date(match.fixture.date).toLocaleString()}</span>
+            </div>
+        `;
+        upcomingMatchesContainer.appendChild(matchElement);
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
 
