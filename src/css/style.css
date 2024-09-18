@@ -1,4 +1,4 @@
-*{
+* {
   padding: 0px;
   margin: 0px;
 }
@@ -9,9 +9,10 @@
   height: 100vh;
 }
 
+/* Bordes circulares en el menú */
 .menu {
   width: 20%;
-  background-color: #1a1a1a;
+  background-color: #242424;
   height: 100vh;
   position: fixed;
   display: flex;
@@ -19,6 +20,33 @@
   padding: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
   z-index: 999;
+  border-radius: 6px; /* Bordes circulares */
+}
+
+/* Estilos del menú de opciones desplegable (mini menú) */
+.submenu {
+  display: none;
+  background-color: #3a3a3a;
+  margin-top: 5px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.submenu a {
+  display: block;
+  padding: 5px 0;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.9em;
+}
+
+.submenu a:hover {
+  color: #646cff;
+}
+
+/* Mostrar el submenu cuando se pasa el mouse sobre el link "Fútbol" */
+.futbol:hover .submenu {
+  display: block;
 }
 
 .menu-item {
@@ -40,10 +68,11 @@
 
 .content {
   width: 100%; /* Espacio para el menú */
-  background-color: #242424;
+  background-color: #FFFFFF;
   height: 100vh;
   color: #ffffff;
 }
+
 
 
 

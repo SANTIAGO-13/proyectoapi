@@ -14,20 +14,18 @@ class ApiServe {
 		return fetch(`https://v3.football.api-sports.io/countries`, {
 			headers: this.myHeaders,
 		})
-			.then((response) => {
-				if (!response.ok) {
-					throw new Error("Network response was not ok");
-				}
-				return response.json();
-			})
-			.then((result) => {
-				if (!result.response) {
-					throw new Error("No response data");
-				}
-				return result.response;
-			})
+			.then((response) => response.json())
+			.then((result) => result.response)
 			.catch((error) => console.error("Fetch error:", error));
+	}
+
+	fetchMatches(liga) {
+		return fetch(`https://v3.football.api-sports.io/fixtures?league=${liga}&season=2023&live=all`, this.requestOptions)
+			.then((response) => response.json())
+			.then((result) => result.response)
+			.catch((error) => console.error("Error fetching matches:", error));
 	}
 }
 
 export default ApiServe;
+

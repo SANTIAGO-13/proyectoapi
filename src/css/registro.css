@@ -1,0 +1,67 @@
+body {
+    background-color: #08B83A;
+    font-family: Arial, sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Cambiado a flex-start para que el contenido no esté centrado verticalmente */
+    height: 100vh;
+    margin: 0;
+    padding-top: 50px; /* Añadido padding para crear espacio en la parte superior */
+    padding-bottom: 50px; /* Añadido padding en la parte inferior */
+    overflow-y: auto; /* Permite el desplazamiento vertical si es necesario */
+}
+
+.container {
+    background-color: #0A4317;
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    margin-top: 30px; /* Ajustado para mayor separación */
+    margin-bottom: 30px; /* Añadido margen inferior para mayor separación */
+}
+
+h1 {
+    text-align: center;
+}
+
+label {
+    margin-top: 10px;
+    display: block;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: linear-gradient(to right, #08B83A 0%, #0A4317 100%); /* Degradado para los botones */
+    color: white;
+}
+
+button[type="button"] {
+    background: linear-gradient(to right, #e74c3c 0%, #77170c 100%); /* Degradado para el botón de cancelar */
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+a {
+    color: #ecf0f1;
+    text-decoration: none;
+}
+
+
+

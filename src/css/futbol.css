@@ -1,102 +1,145 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-}
-
+/* General Layout */
 #app {
     display: flex;
 }
 
+/* Menu */
 .menu {
-    width: 200px;
+    width: 180px;
     background-color: #333;
-    color: white;
+    height: 100vh;
+    padding: 15px 0;
+    position: fixed;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 300px; /* Alinea el contenido con el menú */
     padding: 10px;
-    position: fixed; /* Fija el menú en la izquierda */
-    height: 100%; /* Asegura que el menú ocupe toda la altura */
+    width: calc(100% - 180px); /* Ajusta el ancho */
 }
 
-.menu-item {
-    display: block;
-    color: white;
+/* Encabezado y Banner */
+.header {
+    text-align: center;
     padding: 10px;
-    text-decoration: none;
 }
 
-.menu-item:hover, .menu-item.active {
-    background-color: #575757;
+.banner-image {
+    width: 100%;
+    height: auto;
+    max-height: 130px; /* Más pequeño */
+    object-fit: cover;
+    border-radius: 10px;
 }
 
-.content {
-    flex: 1;
-    padding: 20px;
-    margin-left: 300px; /* Margen para el menú */
-}
-
-.matches-container {
+/* Botones de estado */
+.status-buttons {
     display: flex;
-    flex-direction: column;
+    gap: 8px; /* Reduce la separación entre los botones */
+    padding: 10px;
+    align-items: center; /* Alinea verticalmente */
+    margin-left: 0; /* Alinea los botones al inicio */
 }
 
-.country-section {
-    margin-bottom: 20px;
-}
-
-.country-section h3 {
-    margin: 0 0 10px;
-    color: #333;
-}
-
-.match-box {
-    background-color: #1B1B1B;
-    color: white;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.match-title {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.match-score {
-    font-size: 16px;
-}
-
-#standings-btn {
-    margin-top: 20px;
-    padding: 10px 15px;
-    background-color: #007BFF;
-    color: white;
+.live-button, .finished-button {
+    padding: 7px 15px; /* Más pequeños */
+    font-size: 13px; /* Texto más pequeño */
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    background-color: #ff4b4b;
+    color: white;
 }
 
-#standings {
-    margin-top: 20px;
-    background-color: #575757;
-    padding: 15px;
+.finished-button {
+    background-color: #bfbfbf;
+}
+
+.date-box {
+    background-color: #20bf55;
+    color: white;
+    padding: 7px;
     border-radius: 5px;
+    font-size: 13px;
+    margin-left: auto; /* Mueve la fecha hacia la derecha */
 }
 
-.standings-table {
-    margin-top: 10px;
+/* Sección de partidos */
+.match-section {
+    padding: 10px;
 }
 
-.standing-row {
+.match-category {
+    background-color: #f0f0f0;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.match-category h2 {
+    background-color: #bfbfbf;
+    padding: 8px;
+    margin: 0;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Partidos */
+.match {
     display: flex;
-    justify-content: space-between;
-    padding: 5px 0;
+    align-items: center;
+    padding: 5px; /* Reduce el padding */
+    border-bottom: 1px solid #ccc;
+    font-size: 14px;
+    justify-content: space-between; /* Alinea los elementos a los extremos */
 }
 
-.hidden {
-    display: none;
+.match:last-child {
+    border-bottom: none;
 }
+
+.time {
+    font-size: 1em;
+    color: red;
+    margin-right: 5px;
+}
+
+.teams {
+    display: flex;
+    flex-direction: column; /* Alinea los nombres de los equipos en una columna */
+    font-size: 1em;
+    margin-left: 10px; /* Espacio entre el tiempo y los nombres de los equipos */
+}
+
+.team-logo {
+    margin-right: 10px; /* Espacio entre el logo/bandera y el nombre del equipo */
+}
+
+.team-name {
+    text-align: left; /* Alinea el nombre a la izquierda */
+}
+
+.score {
+    font-size: 1em;
+    color: red;
+    margin-left: auto; /* Mueve el marcador hacia la derecha */
+}
+
+/* Estilo para las banderas */
+.flag-icon {
+    width: 24px;
+    height: auto;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+
+
+
+
+
+
 
 
 

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/registro.css">
+    <title>Registro</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Registro</h1>
+        <p>Nueva Usuario</p>
+        <p>Date de alta llenando los siguientes datos.</p>
+        <form>
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" placeholder="Nombre" required>
+
+            <label for="segundo-nombre">Segundo Nombre</label>
+            <input type="text" id="segundo-nombre" placeholder="Segundo Nombre">
+
+            <label for="apellido">Apellido</label>
+            <input type="text" id="apellido" placeholder="Apellido" required>
+
+            <label for="segundo-apellido">Segundo Apellido</label>
+            <input type="text" id="segundo-apellido" placeholder="Segundo Apellido">
+
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="hey@tuemail.com" required>
+
+            <label for="fecha-nacimiento">Fecha de nacimiento</label>
+            <input type="date" id="fecha-nacimiento" required>
+
+            <label for="contrasena">Contraseña</label>
+            <input type="password" id="contrasena" placeholder="Introduce tu contraseña" required>
+
+            <button type="submit">Guardar</button>
+            <button type="button" onclick="cancelar()">Cancelar</button>
+        </form>
+        <p>¿Ya tienes cuenta? <a href="../pages/inicio.html">Inicia sesión</a></p> <!-- Ruta actualizada -->
+    </div>
+    <script>
+        function cancelar() {
+            // Lógica para cancelar (redireccionar o limpiar campos)
+            alert('Registro cancelado');
+        }
+    </script>
+</body>
+</html>
+

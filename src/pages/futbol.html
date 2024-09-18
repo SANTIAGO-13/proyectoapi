@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/futbol.css">
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://kit.fontawesome.com/321d38862d.js" crossorigin="anonymous"></script>
+    <script type="module" src="../js/api/index.js"></script> <!-- Incluimos el script de la API -->
     <title>Fútbol</title>
 </head>
 <body>
@@ -14,53 +14,58 @@
         <div class="menu">
             <a href="./home.html" class="menu-item"><i class="fa-solid fa-house"></i> Home</a>
             <a href="./futbol.html" class="menu-item active"><i class="fa-solid fa-futbol"></i> Fútbol</a>
-            <div class="menu-item"><i class="fa-solid fa-microphone-lines"></i> Marcador en vivo</div>
-            <div class="menu-item"><i class="fa-solid fa-chart-simple"></i> Estadísticas</div>
-            <div class="menu-item"><i class="fa-solid fa-baseball-bat-ball"></i> Ligas</div>
-            <div class="menu-item"><i class="fa-solid fa-envelope"></i> Soporte</div>
             <div class="menu-item"><i class="fa-solid fa-circle-xmark"></i> Salir</div>
         </div>
-        <div class="content">
-            <h2>Partidos en Vivo</h2>
-            <div class="matches-container">
-                <div class="country-section">
-                    <h3>Ethiopia: Premier League</h3>
-                    <div class="match-box" onclick="showMatchDetails('Welayta Dicha vs Sidama Bunna', '0-0', '0\' No events')">
-                        <div class="match-title">Welayta Dicha vs Sidama Bunna</div>
-                        <div class="match-score">0 - 0</div>
-                    </div>
+        <div class="main-content">
+            <!-- Encabezado con la imagen -->
+            <div class="header">
+                <img src="../img/8103630.jpg" alt="Football Championship Banner" class="banner-image">
+            </div>
+
+            <!-- Botones de En directo y Finalizados -->
+            <div class="status-buttons">
+                <button class="live-button">En directo</button>
+                <button class="finished-button">Finalizados</button>
+                <div class="date-box">2024-09-17</div>
+            </div>
+
+            <!-- Partidos en directo -->
+            <div class="match-section">
+                <!-- Liga Española -->
+                <div class="match-category">
+                    <h2><img src="https://flagcdn.com/es.svg" alt="España" class="flag-icon"> España: La liga EA Sports</h2>
+                    <div id="spain-matches" class="matches"></div> <!-- Contenedor para partidos -->
                 </div>
-                <div class="country-section">
-                    <h3>Thailand: FA Cup</h3>
-                    <div class="match-box" onclick="showMatchDetails('Suphanburi vs Buriram United', '1-3', '50\' Event details')">
-                        <div class="match-title">Suphanburi vs Buriram United</div>
-                        <div class="match-score">1 - 3</div>
-                    </div>
+
+                <!-- Liga Inglesa -->
+                <div class="match-category">
+                    <h2><img src="https://flagcdn.com/gb.svg" alt="Inglaterra" class="flag-icon"> Inglaterra: Premier League</h2>
+                    <div id="england-matches" class="matches"></div>
                 </div>
-                <div class="country-section">
-                    <h3>Russia: FNL 2 - Group 4</h3>
-                    <div class="match-box" onclick="showMatchDetails('Dinamo Barnaul vs Nosta', '1-1', '81\' Event details')">
-                        <div class="match-title">Dinamo Barnaul vs Nosta</div>
-                        <div class="match-score">1 - 1</div>
-                    </div>
+
+                <!-- Bundesliga -->
+                <div class="match-category">
+                    <h2><img src="https://flagcdn.com/de.svg" alt="Alemania" class="flag-icon"> Alemania: Bundesliga</h2>
+                    <div id="germany-matches" class="matches"></div>
                 </div>
-                <div class="country-section">
-                    <h3>Malaysia: Super League</h3>
-                    <div class="match-box" onclick="showMatchDetails('Johor Darul Takzim FC vs Pahang', '1 - 2', 'HT Event details')">
-                        <div class="match-title">Johor Darul Takzim FC vs Pahang</div>
-                        <div class="match-score">1 - 2</div>
-                    </div>
+
+                <!-- Ligue 1 -->
+                <div class="match-category">
+                    <h2><img src="https://flagcdn.com/fr.svg" alt="Francia" class="flag-icon"> Francia: Ligue 1</h2>
+                    <div id="france-matches" class="matches"></div>
                 </div>
-                <!-- Agrega más secciones de países y partidos según sea necesario -->
+
+                <!-- Serie A -->
+                <div class="match-category">
+                    <h2><img src="https://flagcdn.com/it.svg" alt="Italia" class="flag-icon"> Italia: Serie A</h2>
+                    <div id="italy-matches" class="matches"></div>
+                </div>
             </div>
         </div>
     </div>
-    <script>
-        function showMatchDetails(title, score, events) {
-            alert(`Partido: ${title}\nResultado: ${score}\nEventos: ${events}`);
-        }
-    </script>
 </body>
 </html>
+
+
 
 

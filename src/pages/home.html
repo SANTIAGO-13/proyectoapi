@@ -11,22 +11,18 @@
 <body>
     <div id="app">
         <div class="menu">
-            <div class="menu-item"><i class="fa-solid fa-house"></i> Home</div>
-            <a href="./futbol.html" class="menu-item active"><i class="fa-solid fa-futbol"></i> Fútbol</a>
-            <div class="menu-item"><i class="fa-solid fa-microphone-lines"></i> Marcador en vivo</div>
-            <div class="menu-item"><i class="fa-solid fa-chart-simple"></i> Estadísticas</div>
-            <div class="menu-item"><i class="fa-solid fa-baseball-bat-ball"></i> Ligas</div>
-            <div class="menu-item"><i class="fa-solid fa-envelope"></i> Soporte</div>
+            <a href="./home.html" class="menu-item active"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="./futbol.html" class="menu-item futbol"><i class="fa-solid fa-futbol"></i> Fútbol
+                <div class="submenu">
+                    <a href="#">La Liga EA Sports</a>
+                    <a href="#">Premier League</a>
+                    <a href="#">Bundesliga</a>
+                    <a href="#">Ligue 1</a>
+                    <a href="#">Serie A</a>
+                </div>
+            </a>
             <div class="menu-item"><i class="fa-solid fa-circle-xmark"></i> Salir</div>
         </div>
-
-        <div class="content">
-            <!-- Contenedor de la imagen y título -->
-            <div class="image-container">
-                <img class="image" src="../img/8103630.jpg" alt="Imagen OPI">
-                <h2>Live Matches</h2>
-            </div>
-
             <!-- Contenedor para los partidos -->
             <div class="matches-container">
                 <!-- Cuadro 1: Chelsea vs Manchester United -->
@@ -36,139 +32,9 @@
                         <span>VS</span>
                         <img src="../img/manchesterunited.png" alt="Manchester United Logo" class="team-logo">
                     </div>
-                    <div class="team-names">
-                        <span>Chelsea</span>
-                        <span>3</span>
-                    </div>
-                    <div class="team-names">
-                        <span>Manchester United</span>
-                        <span>1</span>
-                    </div>
-                </div>
-
-                <!-- Cuadro 2: Real Madrid vs Barcelona -->
-                <div class="match-box">
-                    <div class="team-row">
-                        <img src="../img/realmadrid1.png" alt="Real Madrid Logo" class="team-logo">
-                        <span>VS</span>
-                        <img src="../img/barcelona.png" alt="Barcelona Logo" class="team-logo">
-                    </div>
-                    <div class="team-names">
-                        <span>Real Madrid</span>
-                        <span>1</span>
-                    </div>
-                    <div class="team-names">
-                        <span>Barcelona</span>
-                        <span>2</span>
-                    </div>
-                </div>
-
-                <!-- Cuadro 3: Manchester City vs Leicester -->
-                <div class="match-box">
-                    <div class="team-row">
-                        <img src="../img/manchestercity.png" alt="Manchester City Logo" class="team-logo">
-                        <span>VS</span>
-                        <img src="../img/leicestercity.png" alt="Leicester Logo" class="team-logo">
-                    </div>
-                    <div class="team-names">
-                        <span>Manchester City</span>
-                        <span>1</span>
-                    </div>
-                    <div class="team-names">
-                        <span>Leicester</span>
-                        <span>0</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Cuadro de estadísticas -->
-            <div class="stats-box">
-                <h3>Estadísticas: Chelsea vs Manchester United</h3>
-                <div class="possession-row">
-                    <div class="team-possession">
-                        <span>Chelsea</span>
-                        <span>55%</span>
-                    </div>
-                    <div class="team-possession">
-                        <span>Manchester United</span>
-                        <span>45%</span>
-                    </div>
-                </div>
-                <!-- Estadísticas de ambos equipos -->
-                <div class="team-stats">
-                    <div class="team-column">
-                        <h4>Chelsea</h4>
-                        <div class="stat-row">
-                            <div class="stat-item">Tarjetas Amarillas: 3</div>
-                            <div class="stat-item">Tarjetas Rojas: 1</div>
-                        </div>
-                        <div class="stat-row">
-                            <div class="stat-item">Faltas: 12</div>
-                            <div class="stat-item">Goles Esperados: 2.5</div>
-                        </div>
-                        <div class="stat-row">
-                            <div class="stat-item">Tiros de Esquina: 5</div>
-                            <div class="stat-item">Remates: 10</div>
-                        </div>
-                        <div class="stat-row">
-                            <div class="stat-item">Remates a Puerta: 6</div>
-                            <div class="stat-item">Remates Fuera: 4</div>
-                        </div>
-                        <div class="stat-row">
-                            <div class="stat-item">Remates Rechazados: 2</div>
-                            <div class="stat-item">Tiros Libres: 8</div>
-                        </div>
-                        <div class="stat-row">
-                            <div class="stat-item">Fueras de Juego: 3</div>
-                            <div class="stat-item">Saque de Banda: 7</div>
-                        </div>
-                        <div class="stat-row">
-                            <div class="stat-item">Paradas: 5</div>
-                            <div class="stat-item">Ataques: 15</div>
-                        </div>
-                        <div class="stat-row">
-                            <div class="stat-item">Ataques Peligrosos: 8</div>
-                        </div>
-                    </div>
-                    <div class="team-column">
-                        <h4>Manchester United</h4>
-                        <div class="stat-row">
-                            <div class="stat-item">Tarjetas Amarillas: 2</div>
-                            <div class="stat-item">Tarjetas Rojas: 0</div>
-                        </div>
-                        <div class="stat-row">
-                            <div class="stat-item">Faltas: 10</div>
-                            <div class="stat-item">Goles Esperados: 1.8</div>
-                        </div>
-                        <div class="stat-row">
-                            <div class="stat-item">Tiros de Esquina: 6</div>
-                            <div class="stat-item">Remates: 8</div>
-                        </div>
-                        <div class="stat-row">
-                            <div class="stat-item">Remates a Puerta: 4</div>
-                            <div class="stat-item">Remates Fuera: 3</div>
-                        </div>
-                        <div class="stat-row">
-                            <div class="stat-item">Remates Rechazados: 1</div>
-                            <div class="stat-item">Tiros Libres: 5</div>
-                        </div>
-                        <div class="stat-row">
-                            <div class="stat-item">Fueras de Juego: 2</div>
-                            <div class="stat-item">Saque de Banda: 4</div>
-                        </div>
-                        <div class="stat-row">
-                            <div class="stat-item">Paradas: 3</div>
-                            <div class="stat-item">Ataques: 12</div>
-                        </div>
-                        <div class="stat-row">
-                            <div class="stat-item">Ataques Peligrosos: 5</div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
-    <script type="module" src="../js/api/index.js"></script>
 </body>
 </html>
 
