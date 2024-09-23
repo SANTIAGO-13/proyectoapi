@@ -48,7 +48,7 @@ app.get('/api/*', async (req, res) => {
         const response = await fetch(url, {
             method: 'GET',
             headers: {
-                'x-rapidapi-key': '6d519e9fb5e94284c0009d7339dd3a42',
+                'x-rapidapi-key': '2fbd26f676351d37145a6afe9dedf6564028f6533e7f74d782210df9770ae4be',
                 'x-rapidapi-host': 'v3.football.api-sports.io',
             },
         });

@@ -1,6 +1,7 @@
 /* General Layout */
 #app {
     display: flex;
+    flex-direction: column;
     width: 100%;
     height: 100vh;
 }
@@ -16,9 +17,9 @@
 
 /* Main Content */
 .main-content {
-    margin-left: 220px; /* Alinea el contenido con el menú */
+    margin-left: 220px;
     padding: 10px;
-    width: calc(100% - 180px); /* Ajusta el ancho */
+    width: calc(100% - 180px);
 }
 
 /* Encabezado y Banner */
@@ -30,7 +31,7 @@
 .banner-image {
     width: 100%;
     height: auto;
-    max-height: 130px; /* Más pequeño */
+    max-height: 130px;
     object-fit: cover;
     border-radius: 10px;
 }
@@ -38,15 +39,15 @@
 /* Botones de estado */
 .status-buttons {
     display: flex;
-    gap: 8px; /* Reduce la separación entre los botones */
+    gap: 8px;
     padding: 10px;
-    align-items: center; /* Alinea verticalmente */
-    margin-left: 0; /* Alinea los botones al inicio */
+    align-items: center;
+    margin-left: 0;
 }
 
 .live-button, .finished-button {
-    padding: 7px 15px; /* Más pequeños */
-    font-size: 13px; /* Texto más pequeño */
+    padding: 7px 15px;
+    font-size: 13px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -64,53 +65,6 @@
     padding: 7px;
     border-radius: 5px;
     font-size: 13px;
-    margin-left: auto; /* Mueve la fecha hacia la derecha */
-}
-
-/* Sección de partidos */
-.match-section {
-    padding: 10px;
-}
-
-.match-category {
-    background-color: #f0f0f0;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    padding: 8px;
-}
-
-.match-category h2 {
-    background-color: #bfbfbf;
-    padding: 8px;
-    margin: 0;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-/* Sección de próximos partidos */
-.upcoming-matches-section {
-    padding: 10px;
-    background-color: #f0f0f0;
-    border-radius: 8px;
-    margin-bottom: 15px;
-}
-
-.upcoming-matches-section h2 {
-    background-color: #bfbfbf;
-    padding: 8px;
-    margin: 0;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-/* Partidos */
-.match {
-    display: flex;
-    align-items: center;
-    padding: 5px; /* Reduce el padding */
-    border-bottom: 1px solid #ccc;
-    font-size: 14px;
-    justify-content: space-between; /* Alinea los elementos a los extremos */
 }
 
 .match:last-child {
@@ -125,23 +79,26 @@
 
 .teams {
     display: flex;
-    flex-direction: column; /* Alinea los nombres de los equipos en una columna */
+    flex-direction: column;
     font-size: 1em;
-    margin-left: 10px; /* Espacio entre el tiempo y los nombres de los equipos */
+    margin-left: 10px;
 }
 
 .team-logo {
-    margin-right: 10px; /* Espacio entre el logo/bandera y el nombre del equipo */
+    margin-right: 10px;
+    width: 30px; /* Tamaño reducido */
+    height: auto;
 }
 
 .team-name {
-    text-align: left; /* Alinea el nombre a la izquierda */
+    text-align: left;
+    font-size: 12px; /* Tamaño reducido */
 }
 
 .score {
     font-size: 1em;
     color: red;
-    margin-left: auto; /* Mueve el marcador hacia la derecha */
+    margin-left: auto;
 }
 
 /* Estilo para las banderas */
@@ -151,6 +108,93 @@
     margin-right: 8px;
     vertical-align: middle;
 }
+
+/* Liga Info */
+.liga-info {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.img-pais-liga {
+    width: 40px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.liga-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.country-name {
+    font-size: 14px;
+    margin: 0;
+}
+
+.title-liga {
+    font-size: 16px;
+    margin: 0;
+}
+
+/* Tamaño pequeño para equipos */
+.team-logo.small {
+    width: 20px;
+}
+
+.team-name.small {
+    font-size: 10px;
+}
+
+/* Estilo para los partidos */
+.match-box {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 5px 0; /* Reduce el margen entre cuadros */
+    max-width: 800px; /* Reduce el tamaño del cuadro */
+    position: relative;
+}
+
+.match-team {
+    display: flex;
+    justify-content: space-between;
+}
+
+.team-name {
+    font-weight: bold;
+}
+
+.score {
+    color: #ff4b4b;
+    font-size: 1.2em;
+}
+
+.match-box .link {
+    position: absolute;
+    z-index: 999;
+    padding: 8px;
+    background: #222;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 20px;
+    right: 60px;
+    bottom: 12px;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
