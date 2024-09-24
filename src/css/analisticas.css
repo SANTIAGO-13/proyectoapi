@@ -46,6 +46,174 @@
     margin-bottom: 10px;
 }
 
-.analysis-content p {
-    font-size: 16px;
+.box-teams {
+    margin-top: 20px;
 }
+
+.box {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 400px; /* Ancho máximo del cuadro ajustado */
+    width: 100%; /* Permitir que ocupe el ancho completo hasta el máximo */
+}
+
+.liga-info {
+    display: flex;
+    align-items: center;
+}
+
+.img-pais-liga {
+    width: 30px; /* Tamaño reducido para la bandera */
+    height: auto;
+    margin-right: 10px;
+}
+
+.liga-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.country-name {
+    font-size: 14px;
+    margin: 0;
+}
+
+.title-liga {
+    font-size: 16px;
+    margin: 0;
+}
+
+.jornada {
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: auto; /* Mueve "Jornada 5" a la derecha */
+}
+
+/* Estilo para detalles del partido */
+.match-details {
+    margin-top: 10px; /* Espacio superior reducido */
+    padding: 10px;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; /* Permitir posicionamiento absoluto de elementos hijos */
+}
+
+/* Información del partido */
+.match-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-badge {
+    width: 40px; /* Tamaño ajustado de los escudos */
+    height: auto;
+    margin: 0 5px; /* Espacio reducido entre escudos */
+}
+
+.match-date {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px; /* Espacio entre fecha y escudos */
+}
+
+.match-time {
+    font-size: 14px; /* Tamaño para la hora */
+    margin: 5px 0; /* Espacio entre hora y otros elementos */
+}
+
+.match-referee {
+    font-size: 14px; /* Tamaño para el árbitro */
+    margin: 5px 0; /* Espacio entre árbitro y otros elementos */
+}
+
+.match-status {
+    font-weight: bold;
+    margin: 5px 0; /* Espacio entre estado y estadio */
+}
+
+/* Logo de la Liga */
+.league-logo {
+    width: 30px; /* Ajustar el tamaño del logo de la liga */
+    height: auto;
+    position: absolute; /* Cambiar a posición absoluta */
+    top: 10px; /* Espacio desde la parte superior */
+    left: 10px; /* Espacio desde la izquierda */
+}
+
+/* Estilos para los botones */
+.buttons-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.buttons-container button {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+.buttons-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para la información del resumen */
+.summary-info {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+}
+
+/* Separación de secciones */
+.summary-info h3,
+.summary-info h4 {
+    margin-top: 20px; /* Espacio adicional hacia arriba */
+    margin-bottom: 10px; /* Espacio adicional hacia abajo */
+    text-align: center; /* Centrar títulos */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
