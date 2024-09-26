@@ -6,6 +6,9 @@ import { fileURLToPath } from 'url';
 import sequelize from './db.js'; 
 import Registro from './src/models/registro.js'; 
 import Inicio from './src/models/inicio.js'; 
+import Resumen from './src/models/resumen.js'; 
+import Estadisticas from './src/models/estadisticas.js'; 
+import Clasificacion from './src/models/clasificacion.js'; 
 import bcrypt from 'bcrypt';
 import Pais from './src/models/pais.js'; 
 import Liga from './src/models/liga.js';
@@ -124,8 +127,8 @@ app.get('/api/*', async (req, res) => {
 // Sincronizar modelos y iniciar el servidor
 async function startServer() {
     try {
-        await sequelize.sync({ force: true }); // Cambiar a `sync()` para no forzar la creación de tablas en producción
-        console.log('Tablas creadas');
+        await sequelize.sync({ force: false }); // Cambiado a false para no borrar tablas
+        console.log('Tablas sincronizadas');
 
         app.listen(PORT, () => {
             console.log(`Servidor corriendo en http://localhost:${PORT}`);
@@ -136,6 +139,8 @@ async function startServer() {
 }
 
 startServer();
+
+
 
 
 

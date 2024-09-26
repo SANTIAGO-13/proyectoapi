@@ -34,3 +34,4 @@ const Registro = sequelize.define('Registros', {
 });
 
 export default Registro;
+
