@@ -7,16 +7,18 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "start": "nodemon proxy.js"  
+    "start": "nodemon proxy.js"
   },
   "devDependencies": {
-    "vite": "^5.4.1",
-    "nodemon": "^2.0.22" 
+    "nodemon": "^2.0.22",
+    "vite": "^5.4.1"
   },
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
     "express": "^4.21.0",
-    "node-fetch": "^3.3.2"
+    "mysql2": "^3.11.3",
+    "node-fetch": "^3.3.2",
+    "sequelize": "^6.37.3"
   }
 }
-

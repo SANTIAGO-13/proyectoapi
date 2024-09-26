@@ -47,11 +47,11 @@ function createMatchDetails(match, leagueLogo) {
                 </div>
                 <p>Fecha: ${match.match_date}</p>
                 <p class="match-time">Hora: ${match.match_time}</p>
-                <p>Árbitro: ${match.match_referee}</p> <!-- Añadido el nombre del árbitro -->
+                <p>Árbitro: ${match.match_referee}</p>
                 <p>Estadio: ${match.match_stadium}</p>
                 <p>Temporada: ${match.league_year}</p>
                 <p>Estado: ${match.match_status}</p>
-                <img src="${leagueLogo}" alt="Logo de la Liga" class="league-logo" /> <!-- Logo de la liga -->
+                <img src="${leagueLogo}" alt="Logo de la Liga" class="league-logo" />
             </div>`;
 }
 
@@ -70,7 +70,6 @@ function createSummary(match) {
         summaryHtml += `<p>${goal.away_scorer} ${goal.score} ${goal.time}' ${goal.away_assist ? `(${goal.away_assist})` : ''}</p>`;
     });
 
-    // Tarjetas
     summaryHtml += `<h4>Tarjetas</h4>`;
     match.cards.forEach(card => {
         if (card.home_fault) {
@@ -81,7 +80,6 @@ function createSummary(match) {
         }
     });
 
-    // Sustituciones
     summaryHtml += `<h4>Sustituciones</h4>`;
     match.substitutions.home.forEach(sub => {
         summaryHtml += `<p>${sub.substitution} ${sub.time}'</p>`;
@@ -213,11 +211,14 @@ async function loadLeagueData() {
         // Manejar el clic en el botón Alineaciones
         btnAlineaciones.onclick = async () => {
             const lineupData = await fetchAPI(`https://apiv3.apifootball.com/?action=get_lineups&match_id=383952&APIkey=${KEY}`);
-            if (lineupData && lineupData.length > 0 && lineupData[0].lineup) {
-                const lineup = lineupData[0].lineup; // Accediendo a la propiedad 'lineup'
+            
+            console.log(lineupData); // Ver respuesta de la API
+            
+            if (lineupData && lineupData["383952"] && lineupData["383952"].lineup) {
+                const lineup = lineupData["383952"].lineup; // Accediendo a la propiedad 'lineup'
                 lineupInfoContainer.innerHTML = createLineup(lineup);
             } else {
-                lineupInfoContainer.innerHTML = `<p>No se encontraron alineaciones.</p>`;
+                lineupInfoContainer.innerHTML = `<p>No se encontraron alineaciones. Respuesta de la API: ${JSON.stringify(lineupData)}</p>`;
             }
             summaryInfoContainer.innerHTML = ''; // Limpiar resumen
             statisticsInfoContainer.innerHTML = ''; // Limpiar estadísticas
@@ -241,6 +242,8 @@ async function loadLeagueData() {
 
 // Cargar datos al iniciar
 loadLeagueData();
+
+
 
 
 
