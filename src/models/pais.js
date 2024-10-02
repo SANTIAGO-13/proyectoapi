@@ -1,5 +1,5 @@
 import { DataTypes } from 'sequelize';
-import sequelize from '../../db.js'; // Asegúrate de que la ruta sea correcta
+import sequelize from '../../db.js';
 
 const Pais = sequelize.define('Pais', {
     nombre: {
@@ -13,5 +13,6 @@ const Pais = sequelize.define('Pais', {
 });
 
 export default Pais;
+
 
 

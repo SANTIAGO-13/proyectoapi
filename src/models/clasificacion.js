@@ -1,14 +1,10 @@
 import { DataTypes } from 'sequelize';
-import sequelize from '../../db.js'; // Asegúrate de que la ruta sea correcta
+import sequelize from '../../db.js';
 
 const Clasificacion = sequelize.define('Clasificacion', {
-    equipoId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-            model: 'Equipos', // Asegúrate de que este nombre coincida con el modelo de equipos
-            key: 'id'
-        }
+    nombreEquipo: { // Nuevo campo para el nombre del equipo
+        type: DataTypes.STRING,
+        allowNull: false
     },
     posicion: {
         type: DataTypes.INTEGER,
@@ -41,7 +37,20 @@ const Clasificacion = sequelize.define('Clasificacion', {
     puntos: {
         type: DataTypes.INTEGER,
         allowNull: false
+    },
+    escudoEquipo: { // Nuevo campo para el escudo del equipo
+        type: DataTypes.STRING,
+        allowNull: false
     }
+}, {
+    tableName: 'clasificacions',
+    timestamps: true
 });
 
 export default Clasificacion;
+
+
+
+
+
+

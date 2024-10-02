@@ -1,15 +1,7 @@
 import { DataTypes } from 'sequelize';
-import sequelize from '../../db.js'; // Asegúrate de que la ruta sea correcta
+import sequelize from '../../db.js';
 
 const Estadisticas = sequelize.define('Estadisticas', {
-    partidoId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-            model: 'Partidos', // Asegúrate de que este nombre coincida con el modelo de partidos
-            key: 'id'
-        }
-    },
     tipo: {
         type: DataTypes.STRING,
         allowNull: false
@@ -22,6 +14,14 @@ const Estadisticas = sequelize.define('Estadisticas', {
         type: DataTypes.STRING,
         allowNull: false
     }
+}, {
+    // Opciones adicionales
+    tableName: 'estadisticas',
+    timestamps: true // Esto añadirá createdAt y updatedAt automáticamente
 });
 
 export default Estadisticas;
+
+
+
+
