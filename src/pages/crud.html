@@ -19,20 +19,38 @@
         <div class="main-content">
             <h1>Gestión de Datos</h1>
             <div class="form-container">
-                <input type="text" id="data-input" placeholder="Ingrese datos">
-                <button id="add-button">Crear</button>
+                <button id="add-button">Agregar</button>
                 <button id="edit-button">Modificar</button>
                 <button id="delete-button">Eliminar</button>
-                <button id="exit-button">Salir</button>
             </div>
             <div class="data-list">
                 <h2>Lista de Datos</h2>
-                <ul id="data-list"></ul>
+                <table id="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre del Equipo</th>
+                            <th>Posición</th>
+                            <th>Partidos Jugados</th>
+                            <th>Victorias</th>
+                            <th>Empates</th>
+                            <th>Derrotas</th>
+                            <th>Goles a Favor</th>
+                            <th>Goles en Contra</th>
+                            <th>Puntos</th>
+                            <th>Escudo</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="data-list"></tbody>
+                </table>
             </div>
         </div>
     </div>
-    <script src="../js/crud.js"></script>
+    <script src="../js/api/crud.js"></script>
 </body>
 </html>
+
+
 
 

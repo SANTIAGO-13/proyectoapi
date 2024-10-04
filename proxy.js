@@ -288,6 +288,45 @@ async function fetchAPI(url) {
     }
 }
 
+// Rutas CRUD para Clasificacion
+app.get('/api/clasificacion', async (req, res) => {
+    try {
+        const clasificaciones = await Clasificacion.findAll();
+        res.json(clasificaciones);
+    } catch (error) {
+        res.status(500).json({ error: 'Error al obtener clasificaciones' });
+    }
+});
+
+app.post('/api/clasificacion', async (req, res) => {
+    try {
+        const nuevaClasificacion = await Clasificacion.create(req.body);
+        res.status(201).json(nuevaClasificacion);
+    } catch (error) {
+        res.status(500).json({ error: 'Error al crear clasificación' });
+    }
+});
+
+app.put('/api/clasificacion/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        await Clasificacion.update(req.body, { where: { id } });
+        res.status(200).json({ message: 'Clasificación actualizada' });
+    } catch (error) {
+        res.status(500).json({ error: 'Error al actualizar clasificación' });
+    }
+});
+
+app.delete('/api/clasificacion/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        await Clasificacion.destroy({ where: { id } });
+        res.status(200).json({ message: 'Clasificación eliminada' });
+    } catch (error) {
+        res.status(500).json({ error: 'Error al eliminar clasificación' });
+    }
+});
+
 // Ruta para registrar un nuevo usuario
 app.post('/api/registro', async (req, res) => {
     const { nombre, segundoNombre, apellido, segundoApellido, email, fechaNacimiento, contrasena } = req.body;
@@ -342,6 +381,7 @@ app.post('/api/inicio', async (req, res) => {
 
 // Cargar datos al iniciar
 syncAndLoadData();
+
 
 
 
