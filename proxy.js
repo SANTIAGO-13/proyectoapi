@@ -40,37 +40,25 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'src', 'pages', 'index.html'));
 });
 
-// Servir archivos HTML
+// Otras rutas para servir archivos HTML
 app.get('/inicio.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'src', 'pages', 'inicio.html'));
 });
-
-// Servir archivos HTML
 app.get('/registro.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'src', 'pages', 'registro.html'));
 });
-
-// Servir archivos HTML
 app.get('/futbol.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'src', 'pages', 'futbol.html'));
 });
-
-// Servir archivos HTML
 app.get('/home.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'src', 'pages', 'home.html'));
 });
-
-// Servir archivos HTML
 app.get('/crud.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'src', 'pages', 'crud.html'));
 });
-
-// Servir archivos HTML
 app.get('/analisticas.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'src', 'pages', 'analisticas.html'));
 });
-
-// Servir archivos HTML
 app.get('/salir.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'src', 'pages', 'salir.html'));
 });
@@ -147,7 +135,9 @@ async function loadDataFromAPI() {
                         resultado: `${match.match_hometeam_score} - ${match.match_awayteam_score}`,
                         estado: match.match_status,
                         estadio: match.match_stadium,
-                        arbitro: match.match_referee
+                        arbitro: match.match_referee,
+                        hora: match.match_time, // Almacena la hora del partido
+                        temporada: match.league_year // Almacena la temporada
                     });
                     console.log("Partido guardado:", partido);
 
@@ -352,6 +342,7 @@ app.post('/api/inicio', async (req, res) => {
 
 // Cargar datos al iniciar
 syncAndLoadData();
+
 
 
 
