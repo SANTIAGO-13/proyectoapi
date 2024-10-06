@@ -79,7 +79,7 @@ async function syncAndLoadData() {
 
 // Función para cargar datos de la API
 async function loadDataFromAPI() {
-    const KEY = "2fbd26f676351d37145a6afe9dedf6564028f6533e7f74d782210df9770ae4be";
+    const KEY = "c3eee3587b778da8e94476dd60af85902a8f8246c3348890441c230615ed0099";
     const LEAGUES_IDS = [302, 266, 207]; // IDs de ligas
 
     // Obtener ligas
@@ -381,6 +381,10 @@ app.post('/api/inicio', async (req, res) => {
 
 // Cargar datos al iniciar
 syncAndLoadData();
+
+// Exportar la aplicación
+export default app; // Asegúrate de que esta línea esté presente
+
 
 
 

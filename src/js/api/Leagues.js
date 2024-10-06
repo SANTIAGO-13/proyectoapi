@@ -1,5 +1,5 @@
 const boxTeams = document.querySelector(".box-teams");
-const KEY = "2fbd26f676351d37145a6afe9dedf6564028f6533e7f74d782210df9770ae4be";
+const KEY = "c3eee3587b778da8e94476dd60af85902a8f8246c3348890441c230615ed0099";
 const fetchFinishedButton = document.getElementById("fetch-finished");
 const liveButton = document.querySelector(".live-button");
 

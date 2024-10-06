@@ -8,7 +8,7 @@ const btnEstadisticas = document.getElementById('btn-estadisticas');
 const btnAlineaciones = document.getElementById('btn-alineaciones');
 const btnClasificacion = document.getElementById('btn-clasificacion'); // Nuevo botón para clasificación
 
-const KEY = "2fbd26f676351d37145a6afe9dedf6564028f6533e7f74d782210df9770ae4be";
+const KEY = "c3eee3587b778da8e94476dd60af85902a8f8246c3348890441c230615ed0099";
 const LEAGUES = {
     esp: { id: 6, index: 1 },
 };
