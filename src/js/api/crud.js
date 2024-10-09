@@ -1,4 +1,5 @@
 const apiUrl = 'http://localhost:3001/api/clasificacion';
+const historyList = document.getElementById('history-list');
 
 document.addEventListener('DOMContentLoaded', loadData);
 
@@ -43,6 +44,26 @@ function selectItem(id) {
     alert(`Seleccionaste el ID: ${id}`);
 }
 
+function addHistory(action, item) {
+    const historyList = document.getElementById('history-list');
+    const historyRow = document.createElement('tr');
+    historyRow.innerHTML = `
+        <td>${action}</td>
+        <td>${item.id || ''}</td>
+        <td>${item.nombreEquipo || ''}</td>
+        <td>${item.posicion || ''}</td>
+        <td>${item.partidosJugados || ''}</td>
+        <td>${item.victorias || ''}</td>
+        <td>${item.empates || ''}</td>
+        <td>${item.derrotas || ''}</td>
+        <td>${item.golesAFavor || ''}</td>
+        <td>${item.golesEnContra || ''}</td>
+        <td>${item.puntos || ''}</td>
+        <td>${item.escudoEquipo || ''}</td>
+    `;
+    historyList.appendChild(historyRow);
+}
+
 document.getElementById('add-button').addEventListener('click', async () => {
     const nombreEquipo = prompt("Ingrese el nombre del equipo:");
     const posicion = prompt("Ingrese la posición:");
@@ -78,6 +99,7 @@ document.getElementById('add-button').addEventListener('click', async () => {
                 body: JSON.stringify(nuevoDato)
             });
             loadData(); // Recargar datos después de agregar
+            addHistory('Agregado', nuevoDato);
         } catch (error) {
             console.error('Error al agregar el dato:', error);
         }
@@ -123,6 +145,7 @@ document.getElementById('edit-button').addEventListener('click', async () => {
             body: JSON.stringify(updatedData)
         });
         loadData(); // Recargar datos después de editar
+        addHistory('Modificado', { id: selectedId, ...updatedData });
     } catch (error) {
         console.error('Error al editar el dato:', error);
     }
@@ -136,14 +159,21 @@ document.getElementById('delete-button').addEventListener('click', async () => {
 
     if (confirm("¿Estás seguro de que deseas eliminar este equipo?")) {
         try {
-            await fetch(`${apiUrl}/${selectedId}`, {
+            const response = await fetch(`${apiUrl}/${selectedId}`, {
                 method: 'DELETE'
             });
-            loadData(); // Recargar datos después de eliminar
-            selectedId = null; // Resetear selección
+            if (response.ok) {
+                loadData(); // Recargar datos después de eliminar
+                addHistory('Eliminado', { id: selectedId });
+                selectedId = null; // Resetear selección
+            } else {
+                console.error('Error al eliminar el dato:', response.statusText);
+            }
         } catch (error) {
             console.error('Error al eliminar el dato:', error);
         }
     }
 });
+
+
 

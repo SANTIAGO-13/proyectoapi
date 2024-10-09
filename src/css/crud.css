@@ -68,5 +68,26 @@ button:hover {
     border-radius: 5px;
 }
 
+.history {
+    margin-top: 20px;
+}
+
+.history table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.history th, .history td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ccc;
+}
+
+.history th {
+    background-color: #f2f2f2;
+}
+
+
+
 
 
